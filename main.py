@@ -29,9 +29,9 @@ def hello_world():
         notify_Pop.send("ครั้งที่ %d"%(i))
         notify_Pop.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
         notify_Pop.send("วันที่ %s เวลา %s"%(date,times),image_path=picture_path)
-        #notify_Peace.send("ครั้งที่ %d" % (i))
-        #notify_Peace.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
-        #notify_Peace.send("วันที่ %s เวลา %s" % (date, times), image_path=picture_path)
+        notify_Peace.send("ครั้งที่ %d" % (i))
+        notify_Peace.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
+        notify_Peace.send("วันที่ %s เวลา %s" % (date, times), image_path=picture_path)
         i = i+1
         time.sleep(1)
     #return send_file("spooky.png")
