@@ -1,4 +1,6 @@
-line_notify
+# requirements.txt
+
 Flask==1.0.2
 gunicorn==19.9.0
-selenium
+selenium==3.141.0
+chromedriver-binary==77.0.3865.40.0
