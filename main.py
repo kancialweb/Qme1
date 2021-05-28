@@ -1,44 +1,38 @@
-import time
 from line_notify import LineNotify
-#from flask import Flask, send_file
+from flask import Flask, send_file
+import time
 from selenium import webdriver
-
-import chromedriver_binary  # Adds chromedriver binary to path
-#app = Flask(__name__)
-
-# The following options are required to make headless Chrome
-# work in a Docker container
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("window-size=1920,768")
-#chrome_options.add_argument("window-size=1920,1600")
-chrome_options.add_argument("--no-sandbox")
-
-# Initialize a new browser
-browser = webdriver.Chrome(chrome_options=chrome_options)
-#browser = webdriver.Chrome()
-
-
-#@app.route("/")
+import chromedriver_binary
+app = Flask(__name__)
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")
+options.add_argument("window-size=1920,768")
+options.add_argument("--no-sandbox")
+browser = webdriver.Chrome(chrome_options=options)
+#notify.send('ทดสอบ Loop For',sticker_id=1991,package_id=446)
+@app.route("/")
 def hello_world():
     i = 1
-    while i in range(1,6):
-        ACCESS_TOKEN_Pop = 'vqpQawiQ79yzM51NfPrbMqbWgzPPy6xHz2yNdsYtxxJ'
-        ACCESS_TOKEN_Peace = 'QLACyyfPjHuFIZl6scvwgAjAn0mjLLzv2dgNaePp7m2'
-        Notify_Pop = LineNotify(ACCESS_TOKEN_Pop)
-        Notify_Peace = LineNotify(ACCESS_TOKEN_Peace)
+    while i in range(1,2):
+        Access_Token_Pop = '8hCRHw1nO8yRlChEn5XlGNSE9RUEXSfVj7P6QIX7gVD'
+        Access_Token_Peace = 'QLACyyfPjHuFIZl6scvwgAjAn0mjLLzv2dgNaePp7m2'
+        notify_Pop = LineNotify(Access_Token_Pop)
+        notify_Peace = LineNotify(Access_Token_Peace)
         browser.get("https://datastudio.google.com/embed/reporting/697e8976-a291-4e90-968b-b50fa3f80270/page/0YrJC")
-        #browser.get("https://www.youtube.com")
-        time.sleep(30)
-        browser.save_screenshot("spooky.png")
-        time.sleep(5)
-        date_current = time.strftime("%d/%m/%y")
-        Notify_Pop.send("ทดสอบส่งรายงานการติดตั้ง โครงการ Solar AIS BTS 2020 รอบที่ %d"%i)
-        Notify_Pop.send("วันที่ %s" %date_current, image_path="spooky.png")
-        time.sleep(2)
-        #Notify_Peace.send("ต้องส่งงานแบบนี้นะ ทดสอบรอบที่ %d"%i, image_path="spooky.png")
-        time.sleep(5)
+        time.sleep(20)
+        picture_path = "Report_CR.png"
+        browser.save_screenshot(picture_path)
+        time.sleep(1)
+        times = time.strftime("%H:%M:%S")
+        date = time.strftime("%d/%m/%y")
+        notify_Pop.send("ครั้งที่ %d"%(i))
+        notify_Pop.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
+        notify_Pop.send("วันที่ %s เวลา %s"%(date,times),image_path=picture_path)
+        #notify_Peace.send("ครั้งที่ %d" % (i))
+        #notify_Peace.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
+        #notify_Peace.send("วันที่ %s เวลา %s" % (date, times), image_path=picture_path)
         i = i+1
+        time.sleep(1)
     #return send_file("spooky.png")
 hello_world()
