@@ -13,7 +13,6 @@ browser = webdriver.Chrome(chrome_options=options)
 #notify.send('ทดสอบ Loop For',sticker_id=1991,package_id=446)
 @app.route("/")
 def hello_world():
-    i = 1
     while i in range(1,2):
         Access_Token_Pop = '8hCRHw1nO8yRlChEn5XlGNSE9RUEXSfVj7P6QIX7gVD'
         Access_Token_Peace = 'QLACyyfPjHuFIZl6scvwgAjAn0mjLLzv2dgNaePp7m2'
@@ -32,7 +31,7 @@ def hello_world():
         notify_Peace.send("ครั้งที่ %d" % (i))
         notify_Peace.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
         notify_Peace.send("วันที่ %s เวลา %s" % (date, times), image_path=picture_path)
-        i = i+1
+        i += 1
         time.sleep(1)
     #return send_file("spooky.png")
 hello_world()
