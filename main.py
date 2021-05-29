@@ -12,7 +12,7 @@ options.add_argument("--no-sandbox")
 browser = webdriver.Chrome(chrome_options=options)
 #notify.send('ทดสอบ Loop For',sticker_id=1991,package_id=446)
 @app.route("/")
-def hello_world():
+def hello_world(i):
     while i in range(1,2):
         Access_Token_Pop = '8hCRHw1nO8yRlChEn5XlGNSE9RUEXSfVj7P6QIX7gVD'
         Access_Token_Peace = 'QLACyyfPjHuFIZl6scvwgAjAn0mjLLzv2dgNaePp7m2'
@@ -34,4 +34,4 @@ def hello_world():
         i += 1
         time.sleep(1)
     #return send_file("spooky.png")
-hello_world()
+hello_world(1)
