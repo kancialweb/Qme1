@@ -27,7 +27,7 @@ def hello_world(checktime_status,times,date):
             notify_Peace.send("ทดสอบส่งรายงานการติดตั้งโครงการ Solar AIS BTS 2020 ภาคกลาง")
             notify_Peace.send("วันที่ %s เวลา %s" % (date, times), image_path=picture_path)
             print("ส่งข้อมูลเข้า Line สำเร็จ")
-            time.sleep(40)
+            time.sleep(80)
         except:
             print("ส่งข้อมูลเข้า Line ไม่สำเร็จ")
 @app.route("/")
