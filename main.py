@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from line_notify import LineNotify
 from flask import Flask, send_file
 import time
@@ -10,7 +11,7 @@ options.add_argument("--disable-gpu")
 options.add_argument("window-size=1920,780")
 options.add_argument("--no-sandbox")
 browser = webdriver.Chrome(chrome_options=options)
-@app.route("/")
+#@app.route("/")
 def hello_world(checktime_status,times,date):
     if checktime_status == 1:
         Access_Token_Pop = '8hCRHw1nO8yRlChEn5XlGNSE9RUEXSfVj7P6QIX7gVD'
@@ -29,6 +30,7 @@ def hello_world(checktime_status,times,date):
             print("ส่งข้อมูลเข้า Line สำเร็จ")
         except:
             print("ส่งข้อมูลเข้า Line ไม่สำเร็จ")
+#@app.route("/")
 def checktime():
     schedule_Hour = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     schedule_Minute = [0,15,30,45,60]
@@ -40,15 +42,13 @@ def checktime():
     if H in schedule_Hour and M in schedule_Minute:
         print("กำลังส่งข้อมูลไปใน Line")
         checktime_status = 1
+        hello_world(checktime_status, times, date)
     else:
         for i in range(0,len(schedule_Minute)):
             if M <= schedule_Minute[i]:
                 check_M = schedule_Minute[i] - M
                 break
         print("เหลือเวลาอีก : %d นาที" % check_M)
-        checktime_status = 0
-    return (checktime_status,times,date)
 while True:
-    checktime_status,times,date = checktime()
-    hello_world(checktime_status,times,date)
+    checktime()
     time.sleep(60)
