@@ -47,18 +47,9 @@ def checktime():
             if M <= schedule_Minute[i]:
                 check_M = schedule_Minute[i] - M
                 break
-            #print("รอบที่ : %d"% i)
         print("เหลือเวลาอีก : %d นาที" % check_M)
         checktime_status = 0
-        i = 1
     return (checktime_status,times,date)
-while True:
-    try:
-        checktime_status,times,date = checktime()
-        #print("checktime = %d"% checktime_status)
-        #print("times = %s"% times)
-        #print("date = %s"% date)
-        hello_world(checktime_status,times,date)
-        time.sleep(30)
-    except KeyboardInterrupt:
-        print("Interrupt")
+checktime_status,times,date = checktime()
+hello_world(checktime_status,times,date)
+time.sleep(5)
