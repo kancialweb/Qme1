@@ -29,7 +29,6 @@ def hello_world(checktime_status,times,date):
             print("ส่งข้อมูลเข้า Line สำเร็จ")
         except:
             print("ส่งข้อมูลเข้า Line ไม่สำเร็จ")
-@app.route("/")
 def checktime():
     schedule_Hour = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     schedule_Minute = [0,15,30,45,60]
