@@ -1,7 +1,7 @@
 # requirements.txt
 
-Flask==1.0.2
-gunicorn==19.9.0
-selenium==3.141.0
+Flask
+gunicorn
+selenium
 chromedriver-binary
 line_notify
