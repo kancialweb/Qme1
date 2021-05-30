@@ -18,7 +18,7 @@ def hello_world(checktime_status,times,date):
         notify_Pop = LineNotify(Access_Token_Pop)
         notify_Peace = LineNotify(Access_Token_Peace)
         browser.get("https://datastudio.google.com/embed/reporting/697e8976-a291-4e90-968b-b50fa3f80270/page/0YrJC")
-        time.sleep(40)
+        time.sleep(60)
         try:
             picture_path = "Report_CR.png"
             browser.save_screenshot(picture_path)
@@ -52,4 +52,4 @@ def checktime():
 while True:
     checktime_status,times,date = checktime()
     hello_world(checktime_status,times,date)
-    time.sleep(30)
+    time.sleep(60)
