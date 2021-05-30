@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from line_notify import LineNotify
 from flask import Flask, send_file
 import time
@@ -19,7 +18,7 @@ def hello_world(checktime_status,times,date):
         notify_Pop = LineNotify(Access_Token_Pop)
         notify_Peace = LineNotify(Access_Token_Peace)
         browser.get("https://datastudio.google.com/embed/reporting/697e8976-a291-4e90-968b-b50fa3f80270/page/0YrJC")
-        time.sleep(30)
+        time.sleep(20)
         try:
             picture_path = "Report_CR.png"
             browser.save_screenshot(picture_path)
@@ -50,6 +49,7 @@ def checktime():
         print("เหลือเวลาอีก : %d นาที" % check_M)
         checktime_status = 0
     return (checktime_status,times,date)
-checktime_status,times,date = checktime()
-hello_world(1,times,date)
-time.sleep(5)
+while True:
+    checktime_status,times,date = checktime()
+    hello_world(checktime_status,times,date)
+    time.sleep(30)
