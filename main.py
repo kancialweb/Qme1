@@ -14,8 +14,8 @@ browser = webdriver.Chrome(chrome_options=options)
 #@app.route("/")
 def hello_world(checktime_status,times,date):
     if checktime_status == 1:
-        Access_Token_Pop = '8hCRHw1nO8yRlChEn5XlGNSE9RUEXSfVj7P6QIX7gVD'
-        Access_Token_Peace = 'QLACyyfPjHuFIZl6scvwgAjAn0mjLLzv2dgNaePp7m2'
+        Access_Token_Pop = 'xxxx'
+        Access_Token_Peace = 'xxxx'
         notify_Pop = LineNotify(Access_Token_Pop)
         notify_Peace = LineNotify(Access_Token_Peace)
         browser.get("https://datastudio.google.com/embed/reporting/697e8976-a291-4e90-968b-b50fa3f80270/page/0YrJC")
